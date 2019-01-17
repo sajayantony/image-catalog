@@ -62,7 +62,17 @@ class App extends Component {
        
         {
           Object.keys(this.state.teams).map(t => <div>
-          <h2>{t}</h2>
+            <a className="App-link" href={"#"+t} id={t} 
+            ref={element => {
+              const { hash } = window.location;
+              if (hash !== '') {
+                const id = hash.replace('#', '');
+                if (element.id === id) element.scrollIntoView();
+              }
+            }}
+//This is needed to send out hashlinks and probably a proper solution required. 
+             ><h2>{t}</h2></a>
+          
           <ul> {
             this.state.teams[t].repositories.map(r => 
               <li>
@@ -74,17 +84,13 @@ class App extends Component {
               >
                 {r}
               </a>
-
             </li>
             )
           }</ul></div>)
         }
-       
       </div>
     );
   }
-
-
 }
 
 export default App;
