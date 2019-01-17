@@ -61,7 +61,7 @@ class App extends Component {
         </header>
        
         {
-          Object.keys(this.state.teams).map(t => <p>
+          Object.keys(this.state.teams).map(t => <div>
           <h2>{t}</h2>
           <ul> {
             this.state.teams[t].repositories.map(r => 
@@ -77,7 +77,7 @@ class App extends Component {
 
             </li>
             )
-          }</ul></p>)
+          }</ul></div>)
         }
        
       </div>
