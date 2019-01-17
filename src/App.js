@@ -80,7 +80,7 @@ class App extends Component {
             this.state.teams[t].repositories.map(r => 
               <li >
               <a
-                className="App-link"
+                
                 href={"https://mcr.microsoft.com/v2/" + r + "/tags/list"}
                 target="_blank"
                 rel="noopener noreferrer"
