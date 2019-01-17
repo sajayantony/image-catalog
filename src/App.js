@@ -55,14 +55,16 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          Microsoft Container Registry
-        </header>
+      <div >
+        <div className="page-header">
+         <h1>Microsoft Container Registry</h1> 
+        </div>
        
         {
-          Object.keys(this.state.teams).map(t => <div>
-            <a className="App-link" href={"#"+t} id={t} 
+          Object.keys(this.state.teams).map(t => <div >
+           <div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">            <a href={"#"+t} id={t} 
             ref={element => {
               const { hash } = window.location;
               if (hash !== '') {
@@ -71,11 +73,12 @@ class App extends Component {
               }
             }}
 //This is needed to send out hashlinks and probably a proper solution required. 
-             ><h2>{t}</h2></a>
-          
-          <ul> {
+             >{t}</a></div>
+  </div>
+  <div class="panel-body">
+  <ul > {
             this.state.teams[t].repositories.map(r => 
-              <li>
+              <li >
               <a
                 className="App-link"
                 href={"https://mcr.microsoft.com/v2/" + r + "/tags/list"}
@@ -86,7 +89,10 @@ class App extends Component {
               </a>
             </li>
             )
-          }</ul></div>)
+          }</ul>
+  </div>
+</div> 
+          </div>)
         }
       </div>
     );
